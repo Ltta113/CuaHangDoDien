@@ -1,0 +1,86 @@
+﻿@model IEnumerable<CuaHangDoDien.Models.DBConection.SanPham>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Tên sản phẩm</label>
+        </th>
+        <th>
+            <label>Số lượng</label>
+        </th>
+        <th>
+            <label>Giá bán</label>
+        </th>
+        <th>
+            <label>Nhãn hiệu sản phẩm</label>
+        </th>
+        <th>
+            <label>Mẫu sản phẩm</label>
+        </th>
+        <th>
+            <label>Mô tả sản phẩm</label>
+        </th>
+        <th>
+            <label>Ảnh</label>
+        </th>
+        <th>
+            <label>Tên danh mục</label>
+        </th>
+        <th>
+            <label>Nội dung khuyến mãi</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GiaBan)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NhanHieuSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MauSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MoTaSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Anh)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DanhMucSP.TenDanhMuc)
+        </td>
+        <td>
+            @if (item.KhuyenMai.LoaiKM != 0)
+            {
+                @Html.DisplayFor(modelItem => item.KhuyenMai.NoiDungKM)
+            }
+
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_SP }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_SP }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_SP })
+        </td>
+    </tr>
+}
+
+</table>

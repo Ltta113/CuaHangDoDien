@@ -1,0 +1,64 @@
+﻿@model IEnumerable<CuaHangDoDien.Models.DBConection.HoaDon>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Tên sản phẩm</label>
+        </th>
+        <th>
+            <label>Số lượng</label>
+        </th>
+        <th>
+            <label>Ngày bán</label>
+        </th>
+        <th>
+            <label>Tên khách hàng</label>
+        </th>
+        <th>
+            <label>Tên nhân viên</label>
+        </th>
+        <th>
+            <label>Trạng thái</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.SanPham.TenSP)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.SoLuong)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Status)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.Ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User1.Ten)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NgayBan)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_HoaDon }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_HoaDon }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_HoaDon })
+        </td>
+    </tr>
+}
+
+</table>

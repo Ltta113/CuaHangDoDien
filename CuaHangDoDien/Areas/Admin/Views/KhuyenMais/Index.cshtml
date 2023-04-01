@@ -1,0 +1,52 @@
+﻿@model IEnumerable<CuaHangDoDien.Models.DBConection.KhuyenMai>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            <label>Bắt đầu khuyến mãi</label>
+        </th>
+        <th>
+            <label>Kết thúc khuyến mãi</label>
+        </th>
+        <th>
+            <label>Nội dung khuyến mãi</label>
+        </th>
+        <th>
+            <label>Loại khuyến mãi</label>
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BatDauKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.KetThucKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NoiDungKM)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.LoaiKM)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID_KM }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID_KM }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID_KM })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,67 @@
+﻿@model CuaHangDoDien.Models.DBConection.HoaDon
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>HoaDon</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            <label>Tên sản phẩm</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SanPham.TenSP)
+        </dd>
+
+        <dt>
+            <label>Số lượng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SoLuong)
+        </dd>
+
+        <dt>
+            <label>Ngày bán</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NgayBan)
+        </dd>
+
+        <dt>
+            <label>Tên khách hàng</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User.Ten)
+        </dd>
+
+        <dt>
+            <label>Tên nhân viên</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.User1.Ten)
+        </dd>
+
+        <dt>
+            <label>Trạng thái</label>
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Status)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.ID_HoaDon }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
